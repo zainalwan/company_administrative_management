@@ -44,4 +44,6 @@
 			<li><input type="submit" name="register" value="Register"></li>
 		</ul>
 	</form>
+	
+	<p>Already have an account? <a href="/login">Login</a> now.</p>
 @endsection
