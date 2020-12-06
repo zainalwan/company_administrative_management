@@ -22,12 +22,16 @@ use App\Http\Controllers\PagesController;
    |
  */
 
-Route::get('register', [AdminController::class, 'register']);
-Route::post('register', [AdminController::class, 'store']);
+Route::middleware(['is_not_logged_in'])->group(function() {
+	Route::get('register', [AdminController::class, 'register']);
+	Route::post('register', [AdminController::class, 'store']);
 
-Route::get('login', [AdminController::class, 'login']);
-Route::post('login', [AdminController::class, 'authenticate']);
+	Route::get('login', [AdminController::class, 'login']);
+	Route::post('login', [AdminController::class, 'authenticate']);
+});
 
-Route::get('log_out', [AdminController::class, 'log_out']);
+Route::middleware(['is_logged_in'])->group(function() {
+	Route::get('log_out', [AdminController::class, 'log_out']);
 
-Route::get('/', [PagesController::class, 'index']);
+	Route::get('/', [PagesController::class, 'index'])->middleware('is_logged_in');
+});
