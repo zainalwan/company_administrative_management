@@ -104,8 +104,18 @@ class AdminController extends Controller
 			'name' => $admin->name
 		];
 
-		$request->session()->put('_ticket, $datas');
+		$request->session()->put('_ticket', $datas);
 
 		return redirect('/');
+	}
+	
+	/* 
+	 * 	Provide log out action
+	 * 	 */
+	public function log_out(Request $request)
+	{
+		$request->session()->forget('_ticket');
+		
+		return redirect('/login');
 	}
 }
