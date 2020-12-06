@@ -10,31 +10,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Http\Requests\StoreAdmin;
+use App\Http\Requests\AuthenticateAdmin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -58,23 +40,12 @@ class AdminController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified admin resource.
      *
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
     public function show(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Admin $admin)
     {
         //
     }
@@ -108,5 +79,33 @@ class AdminController extends Controller
 	public function register()
 	{
 		return view('admin.register', ['title' => 'Register']);
+	}
+	
+	/* 
+	 * 	Provide login page
+	 * 	 */
+	public function login(Request $request)
+	{
+		$request->session()->forget('admin');
+		return view('admin.login', ['title' => 'Login']);
+	}
+
+	/* 
+	 * 	Provide authentication action
+	 *  */
+	public function authenticate(AuthenticateAdmin $request)
+	{
+		$admin = $request->session()->get('admin');
+		$request->session()->forget('admin');
+
+		$datas = [
+			'id' => $admin->id,
+			'user_name' => $admin->user_name,
+			'name' => $admin->name
+		];
+
+		$request->session()->put('_ticket, $datas');
+
+		return redirect('/');
 	}
 }
