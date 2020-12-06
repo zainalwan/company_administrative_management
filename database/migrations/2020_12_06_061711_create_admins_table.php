@@ -1,5 +1,11 @@
 <?php
 
+/* 
+ * Code that written below is belong to Zain Alwan Wima Irfani. You may
+ * not use, share, modify, and study without the author's permission
+ * (zainalwan4@gmail.com).
+ *  */
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
