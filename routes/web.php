@@ -27,4 +27,6 @@ Route::post('register', [AdminController::class, 'store']);
 Route::get('login', [AdminController::class, 'login']);
 Route::post('login', [AdminController::class, 'authenticate']);
 
+Route::get('log_out', [AdminController::class, 'log_out']);
+
 Route::get('/', [PagesController::class, 'index']);
