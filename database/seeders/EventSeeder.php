@@ -26,6 +26,7 @@ class EventSeeder extends Seeder
 			DB::table('events')->insert([
 				'name' => $random->make()->name(),
 				'description' => $random->make()->paragraph(2),
+				'date' => $random->make()->date(),
 				'created_at' => date('Y-m-d H:i'),
 				'updated_at' => date('Y-m-d H:i')
 			]);
