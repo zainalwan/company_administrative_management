@@ -23,7 +23,7 @@ class AnnouncementSeeder extends Seeder
     {
         for($i = 0; $i < 30; $i++)
 		{
-			DB::table('events')->insert([
+			DB::table('announcements')->insert([
 				'name' => $random->make()->name(),
 				'description' => $random->make()->paragraph(2),
 				'created_at' => date('Y-m-d H:i'),
