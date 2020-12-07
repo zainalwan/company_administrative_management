@@ -19,7 +19,7 @@ class EmployeeSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Random $random)
     {
         for($i = 0; $i < 30; $i++)
 		{
