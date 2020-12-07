@@ -141,11 +141,11 @@ class Random {
 		return $email;
 	}
 
-	public function date()
+	public function date($year)
 	{
 		$day = ceil(rand(1, 30));
 		$month = ceil(rand(1, 12));
 
-		return $day . '-' . $month . '-2020';
+		return $day . '-' . $month . '-' . $year;
 	}
 }
