@@ -9,6 +9,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use \App\Library\Zain\Random;
 
 class EventSeeder extends Seeder
 {
@@ -17,8 +19,16 @@ class EventSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Random $random)
     {
-        //
+		for($i = 0; $i < 30; $i++)
+		{
+			DB::table('events')->insert([
+				'name' => $random->make()->name(),
+				'description' => $random->make()->paragraph(2),
+				'created_at' => date('Y-m-d H:i'),
+				'updated_at' => date('Y-m-d H:i')
+			]);
+		}
     }
 }
