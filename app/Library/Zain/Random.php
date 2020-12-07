@@ -90,13 +90,9 @@ class Random {
 
 			$name = $name . $word;
 
-			if($i != 9)
+			if($i != 2)
 			{
 				$name = $name . ' ';
-			}
-			elseif($i == 9)
-			{
-				$name = $name . '.';
 			}
 		}
 
