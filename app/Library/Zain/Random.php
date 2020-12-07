@@ -144,4 +144,12 @@ class Random {
 
 		return $email;
 	}
+
+	public function date()
+	{
+		$day = ceil(rand(1, 30));
+		$month = ceil(rand(1, 12));
+
+		return $day . '-' . $month . '-2020';
+	}
 }
