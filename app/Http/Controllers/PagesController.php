@@ -21,7 +21,7 @@ class PagesController extends Controller
 							 ->take(4)
 							 ->get(),
 		];
-
+		
 		return view('pages.home', $datas);
 	}
 }
