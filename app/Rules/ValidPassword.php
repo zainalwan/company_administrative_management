@@ -10,6 +10,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class ValidPassword implements Rule
 {
@@ -32,13 +33,19 @@ class ValidPassword implements Rule
 	 */
 	public function passes($attribute, $value)
 	{
-		if(session('admin')
-		   && Hash::check($value, session('admin')->password))
-		{
-			return true;
+		if(session('admin_id'))
+        {
+            $admin = DB::table('admins')->where('id', '=', session('admin_id'))->first();
+
+            if(Hash::check($value, $admin->password))
+            {
+                return true;
+            }
+            
+			return false;
 		}
 		
-        return false;
+        return true;
     }
 
     /**

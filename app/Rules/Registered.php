@@ -36,7 +36,7 @@ class Registered implements Rule
 		
 		if($admin)
 		{
-			session(['admin' => $admin]);
+			session(['admin_id' => $admin->id]);
 			return true;
 		}
 		
