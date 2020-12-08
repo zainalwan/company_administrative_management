@@ -62,7 +62,7 @@ class Random {
 
 	public function paragraph($paragraphs)
 	{
-		$str = '';
+		$str = "";
 
 		for($paragraph = 0; $paragraph < $paragraphs; $paragraph++)
 		{
@@ -70,7 +70,7 @@ class Random {
 
 			if($paragraphs - $paragraph != 1)
 			{
-				$str = $str . '_NEWPAR_';
+				$str = $str . "\r\n";
 			}
 		}
 
