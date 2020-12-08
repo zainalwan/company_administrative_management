@@ -116,7 +116,7 @@ class AnnouncementController extends Controller
 
         $announcement->save();
 
-        return redirect('/announcement/' . $announcement->id)->with('notif', $validated['name'] . ' was successfully saved.');
+        return redirect('/announcement/' . $announcement->id)->with('notif', $validated['name'] . ' was successfully changed.');
     }
 
     /**
