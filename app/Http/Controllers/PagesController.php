@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Announcement;
 
 class PagesController extends Controller
 {
@@ -20,8 +21,11 @@ class PagesController extends Controller
 			'events' => Event::orderBy('id', 'desc')
 							 ->take(4)
 							 ->get(),
+			'announcements' => Announcement::orderBy('id', 'desc')
+										   ->take(4)
+										   ->get()
 		];
-		
+
 		return view('pages.home', $datas);
 	}
 }
