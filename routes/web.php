@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\EmployeesController;
 
 /*
    |--------------------------------------------------------------------------
@@ -32,6 +35,12 @@ Route::middleware(['is_not_logged_in'])->group(function() {
 
 Route::middleware(['is_logged_in'])->group(function() {
 	Route::get('log_out', [AdminController::class, 'log_out']);
+
+	Route::resources([
+		'events' => EventController::class,
+		'announcements' => AnnouncementController::class,
+		'employees' => EmployeesController::class,
+	]);
 
 	Route::get('/', [PagesController::class, 'index'])->middleware('is_logged_in');
 });
