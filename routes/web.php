@@ -38,6 +38,7 @@ Route::middleware(['is_logged_in'])->group(function() {
 
     Route::match(['get', 'post'], 'event/search', [EventController::class, 'search']);
     Route::match(['get', 'post'], 'announcement/search', [AnnouncementController::class, 'search']);
+    Route::match(['get', 'post'], 'employee/search', [EmployeeController::class, 'search']);
     
 	Route::resources([
 		'event' => EventController::class,
