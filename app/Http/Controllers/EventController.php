@@ -120,7 +120,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('/event/' . $event->id)->with('notif', $validated['name'] . ' was successfully saved.');
+        return redirect('/event/' . $event->id)->with('notif', $validated['name'] . ' was successfully changed.');
     }
 
     /**
