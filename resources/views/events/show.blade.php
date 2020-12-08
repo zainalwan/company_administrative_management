@@ -12,7 +12,11 @@
 
 @section('content')
 	<h2>{{ $title }}</h2>
-    
+
+    @if(session('notif'))
+        <p class="notif">{{ session('notif') }}</p>
+    @endif
+        
 	<table>
 	    <tr>
             <td>Name</td>

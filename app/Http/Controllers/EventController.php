@@ -10,7 +10,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreEvent;
+use App\Http\Requests\StoreUpdateEvent;
 
 class EventController extends Controller
 {
@@ -45,7 +45,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEvent $request)
+    public function store(StoreUpdateEvent $request)
     {
         $validated = $request->validated();
 
@@ -89,7 +89,17 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        $datas = [
+            'title' => 'Edit an Event',
+            'event' => [
+                'id' => $event->id,
+                'name' => $event->name,
+                'date' => $event->date,
+                'description' => $event->description,
+            ]
+        ];
+        
+        return view('events.edit', $datas);
     }
 
     /**
@@ -99,9 +109,17 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(StoreUpdateEvent $request, Event $event)
     {
-        //
+        $validated = $request->validated();
+
+        $event->name = $validated['name'];
+        $event->date = $validated['date'];
+        $event->description = $validated['description'];
+
+        $event->save();
+
+        return redirect('/events/' . $event->id)->with('notif', $validated['name'] . ' was successfully saved.');
     }
 
     /**
