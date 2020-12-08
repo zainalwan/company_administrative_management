@@ -28,7 +28,7 @@
 				<li class="error_msg">{{ $message }}</li>
 			@enderror
 			
-			<li><input type="submit" name="register" value="Login"></li>
+			<li><input type="submit" name="login" value="Login"></li>
 		</ul>
 	</form>
 	
