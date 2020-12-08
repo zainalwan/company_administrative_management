@@ -25,7 +25,7 @@ class EmployeeSeeder extends Seeder
 		{
 			DB::table('employees')->insert([
 				'name' => $random->make()->name(),
-				'recruited_at' => date('d-m-Y'),
+				'recruited_at' => date('Y-m-d'),
 				'born' => $random->make()->date(1990),
 				'address' => $random->make()->address(),
 				'email' => $random->make()->email(),
