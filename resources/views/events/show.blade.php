@@ -33,9 +33,9 @@
     </table>
 
     <ul>
-        <li><a href="/events/{{ $event['id'] }}/edit">Edit</a></li>
+        <li><a href="/event/{{ $event['id'] }}/edit">Edit</a></li>
         <li>
-            <form action="/events/{{ $event['id'] }}" method="post">
+            <form action="/event/{{ $event['id'] }}" method="post">
                 @method('DELETE')
                 @csrf
                 <input type="submit" name="delete" value="Delete">

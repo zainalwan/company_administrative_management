@@ -13,7 +13,7 @@
 @section('content')
 	<h2>{{ $title }}</h2>
 	
-	<form action="/events/{{ $event['id'] }}" method="post">
+	<form action="/event/{{ $event['id'] }}" method="post">
         @method('PUT')
 		@csrf
 		<ul>
@@ -36,7 +36,7 @@
 			@enderror
 			
 			<li><input type="submit" name="save" value="Save"></li>
-			<li><a href="/events">Cancel</a></li>
+			<li><a href="/event">Cancel</a></li>
 		</ul>
 	</form>
 	

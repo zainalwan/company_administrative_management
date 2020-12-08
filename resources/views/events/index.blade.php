@@ -27,7 +27,7 @@
 
     @foreach($events as $event)
         <div class="entry">
-            <h3><a href="/events/{{ $event->id }}">{{ $event->name }}</a></h3>
+            <h3><a href="/event/{{ $event->id }}">{{ $event->name }}</a></h3>
             <p>{{ trim(substr($event->description, 0, 50)) . '...' }}</p>
         </div>
     @endforeach
