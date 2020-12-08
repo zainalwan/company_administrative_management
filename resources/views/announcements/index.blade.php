@@ -13,10 +13,6 @@
 @section('content')
     <h2>{{ $title }}</h2>
 
-    @if(session('notif'))
-        <p class="notif">{{ session('notif') }}</p>
-    @endif
-
     <form action="/announcement/search/" method="post">
         <ul>
             @csrf
@@ -25,6 +21,10 @@
             <li><a href="/announcement/create">Create new</a></li>
         </ul>
     </form>
+
+    @if(session('notif'))
+        <p class="notif">{{ session('notif') }}</p>
+    @endif
 
     @foreach($announcements as $announcement)
         <div class="entry">
