@@ -28,7 +28,11 @@
         </tr>
 	    <tr>
             <td>Description</td>
-            <td>{{ $event['description'] }}</td>
+            <td>
+                @foreach($event['descriptions'] as $description)
+                    <p>{{ $description }}</p>
+                @endforeach
+            </td>
         </tr>
     </table>
 
