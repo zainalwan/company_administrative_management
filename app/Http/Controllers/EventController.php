@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreEvent;
 
 class EventController extends Controller
 {
@@ -30,7 +31,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events/create', ['title' => 'Create an Event']);
     }
 
     /**
@@ -39,9 +40,19 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEvent $request)
     {
-        //
+        $validated = $request->validated();
+
+        $event = new Event;
+
+        $event->name = $validated['name'];
+        $event->date = $validated['date'];
+        $event->description = $validated['description'];
+
+        $event->save();
+
+        return redirect('/events')->with('notif', $validated['name'] . ' was successfully saved.');
     }
 
     /**
