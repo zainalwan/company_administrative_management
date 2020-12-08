@@ -58,7 +58,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('/events')->with('notif', $validated['name'] . ' was successfully saved.');
+        return redirect('/event')->with('notif', $validated['name'] . ' was successfully saved.');
     }
 
     /**
@@ -75,7 +75,7 @@ class EventController extends Controller
                 'id' => $event->id,
                 'name' => $event->name,
                 'date' => $event->date,
-                'description' => $event->description
+                'descriptions' => explode("\r\n", $event->description)
             ]
         ];
 
@@ -120,7 +120,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect('/events/' . $event->id)->with('notif', $validated['name'] . ' was successfully saved.');
+        return redirect('/event/' . $event->id)->with('notif', $validated['name'] . ' was successfully saved.');
     }
 
     /**
@@ -133,7 +133,7 @@ class EventController extends Controller
     {
         Event::destroy($event->id);
 
-        return redirect('/events')->with('notif', $event->name . ' was successfully deleted.');
+        return redirect('/event')->with('notif', $event->name . ' was successfully deleted.');
     }
     
     /* 
