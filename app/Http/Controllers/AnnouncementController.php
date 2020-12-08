@@ -131,4 +131,19 @@ class AnnouncementController extends Controller
 
         return redirect('/announcement')->with('notif', $announcement->name . ' was successfully deleted.');
     }
+    
+    /* 
+     * Provide search view
+     *  */
+    public function search(Request $request)
+    {
+        $datas = [
+            'title' => 'Announcements',
+            'announcements' => Announcement::where('name', 'like', "%{$request->keyword}%")
+                             ->orderBy('id', 'desc')
+                             ->paginate(10)
+        ];
+        
+        return view('announcements.index', $datas);
+    }
 }

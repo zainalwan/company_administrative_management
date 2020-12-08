@@ -12,7 +12,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\EmployeeController;
 
 /*
    |--------------------------------------------------------------------------
@@ -37,11 +37,12 @@ Route::middleware(['is_logged_in'])->group(function() {
 	Route::get('log_out', [AdminController::class, 'log_out']);
 
     Route::match(['get', 'post'], 'event/search', [EventController::class, 'search']);
+    Route::match(['get', 'post'], 'announcement/search', [AnnouncementController::class, 'search']);
     
 	Route::resources([
 		'event' => EventController::class,
 		'announcement' => AnnouncementController::class,
-		'employee' => EmployeesController::class,
+		'employee' => EmployeeController::class,
 	]);
 
 	Route::get('/', [PagesController::class, 'index'])->middleware('is_logged_in');
