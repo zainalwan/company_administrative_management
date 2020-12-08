@@ -68,7 +68,17 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        $datas = [
+            'title' => 'Event',
+            'event' => [
+                'id' => $event->id,
+                'name' => $event->name,
+                'date' => $event->date,
+                'description' => $event->description
+            ]
+        ];
+
+        return view('events.show', $datas);
     }
 
     /**
@@ -102,6 +112,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        Event::destroy($event->id);
+
+        return redirect('/events')->with('notif', $event->name . ' was successfully deleted.');
     }
 }
