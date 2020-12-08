@@ -36,10 +36,12 @@ Route::middleware(['is_not_logged_in'])->group(function() {
 Route::middleware(['is_logged_in'])->group(function() {
 	Route::get('log_out', [AdminController::class, 'log_out']);
 
+    Route::match(['get', 'post'], 'event/search', [EventController::class, 'search']);
+    
 	Route::resources([
-		'events' => EventController::class,
-		'announcements' => AnnouncementController::class,
-		'employees' => EmployeesController::class,
+		'event' => EventController::class,
+		'announcement' => AnnouncementController::class,
+		'employee' => EmployeesController::class,
 	]);
 
 	Route::get('/', [PagesController::class, 'index'])->middleware('is_logged_in');

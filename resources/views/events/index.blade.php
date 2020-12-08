@@ -13,6 +13,14 @@
 @section('content')
     <h2>{{ $title }}</h2>
 
+    <form action="/event/search/" method="post">
+        <ul>
+            @csrf
+            <li><input type="text" name="keyword" placeholder="Enter a keyword"></li>
+            <li><input type="submit" name="search" value="Search"></li>
+        </ul>
+    </form>
+
     @if(session('notif'))
         <p class="notif">{{ session('notif') }}</p>
     @endif

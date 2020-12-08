@@ -23,7 +23,8 @@ class EventController extends Controller
     {
         $datas = [
             'title' => 'Events',
-            'events' => Event::paginate(10),
+            'events' => Event::orderBy('id', 'desc')
+                             ->paginate(10)
         ];
         
         return view('events.index', $datas);
@@ -133,5 +134,20 @@ class EventController extends Controller
         Event::destroy($event->id);
 
         return redirect('/events')->with('notif', $event->name . ' was successfully deleted.');
+    }
+    
+    /* 
+     * Provide search view
+     *  */
+    public function search(Request $request)
+    {
+        $datas = [
+            'title' => 'Events',
+            'events' => Event::where('name', 'like', "%{$request->keyword}%")
+                             ->orderBy('id', 'desc')
+                             ->paginate(10)
+        ];
+        
+        return view('events.index', $datas);
     }
 }
