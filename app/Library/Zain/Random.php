@@ -144,8 +144,19 @@ class Random {
 	public function date($year)
 	{
 		$day = ceil(rand(1, 30));
+
+        if($day < 10)
+        {
+            $day = '0' . $day;
+        }
+        
 		$month = ceil(rand(1, 12));
 
-		return $day . '-' . $month . '-' . $year;
+        if($month < 10)
+        {
+            $month = '0' . $month;
+        }
+
+		return $year . '-' . $month . '-' . $day;
 	}
 }
