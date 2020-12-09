@@ -12,7 +12,11 @@
 
 @section('content')
 	<h2>{{ $title }}</h2>
-	
+
+    @if(session('notif'))
+        <p class="notif">{{ session('notif') }}</p>
+    @endif
+
 	<form action="login" method="post">
 		@csrf
 		<ul>
@@ -23,7 +27,7 @@
 			@enderror
 
 			<li><label for="password">Password</label></li>
-			<li><input type="password" id="password" name="password" value=""></li>
+			<li><input type="password" id="password" name="password" value="{{ old('password') }}"></li>
 			@error('password')
 				<li class="error_msg">{{ $message }}</li>
 			@enderror
