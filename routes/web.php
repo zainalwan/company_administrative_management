@@ -36,6 +36,11 @@ Route::middleware(['is_not_logged_in'])->group(function() {
 Route::middleware(['is_logged_in'])->group(function() {
 	Route::get('log_out', [AdminController::class, 'log_out']);
 
+    Route::get('account', [AdminController::class, 'show']);
+    Route::get('account/change_password', [AdminController::class, 'change_password']);
+    Route::put('account/change_password', [AdminController::class, 'update']);
+    Route::delete('account', [AdminController::class, 'destroy']);
+
     Route::match(['get', 'post'], 'event/search', [EventController::class, 'search']);
     Route::match(['get', 'post'], 'announcement/search', [AnnouncementController::class, 'search']);
     Route::match(['get', 'post'], 'employee/search', [EmployeeController::class, 'search']);

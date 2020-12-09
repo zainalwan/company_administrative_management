@@ -11,13 +11,13 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Http\Requests\StoreAdmin;
 use App\Http\Requests\AuthenticateAdmin;
+use App\Http\Requests\ChangePasswordAdmin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-
     /**
      * Store a newly created resource in storage.
      *
@@ -26,17 +26,17 @@ class AdminController extends Controller
      */
     public function store(StoreAdmin $request)
     {
-		$validated = $request->validated();
+        $validated = $request->validated();
 
-		$admin = new Admin;
+        $admin = new Admin;
 
-		$admin->name = $validated['name'];
-		$admin->user_name = $validated['user_name'];
-		$admin->password = Hash::make($validated['password']);
+        $admin->name = $validated['name'];
+        $admin->user_name = $validated['user_name'];
+        $admin->password = Hash::make($validated['password']);
 
-		$admin->save();
+        $admin->save();
 
-		return redirect('login');
+        return redirect('/login')->with('notif', 'Welcome ' . $admin->name . ', you are able to login now.');
     }
 
     /**
@@ -45,9 +45,17 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show()
     {
-        //
+        $datas = [
+            'title' => 'Account Details',
+            'account' => [
+                'name' => session('_ticket')['name'],
+                'user_name' => session('_ticket')['user_name'],
+            ]
+        ];
+        
+        return view('admin.show', $datas);
     }
 
     /**
@@ -57,9 +65,16 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(ChangePasswordAdmin $request)
     {
-        //
+        $validated = $request->validated();
+
+        $admin = Admin::find(session('_ticket')['id']);
+        $admin->password = Hash::make($validated['new_password']);
+
+        $admin->save();
+
+        return redirect('/account')->with('notif', 'Your password was successfully changed.');
     }
 
     /**
@@ -68,54 +83,69 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Request $request)
     {
-		//
+        Admin::destroy($request->session()->get('_ticket')['id']);
+
+        $name = $request->session()->get('_ticket')['name'];
+        
+        $request->session()->forget('_ticket');
+
+        return redirect('/login')->with('notif', $name . '\'s account was successfully deleted.');
     }
-	
-	/* 
-	 * 	Provide register page
-	 * 	 */
-	public function register()
-	{
-		return view('admin.register', ['title' => 'Register']);
-	}
-	
-	/* 
-	 * 	Provide login page
-	 * 	 */
-	public function login(Request $request)
-	{
-		$request->session()->forget('admin');
-		return view('admin.login', ['title' => 'Login']);
-	}
+    
+    /* 
+     *  Provide register page
+     *   */
+    public function register()
+    {
+        return view('admin.register', ['title' => 'Register']);
+    }
+    
+    /* 
+     *  Provide login page
+     *   */
+    public function login(Request $request)
+    {
+        $request->session()->forget('admin');
+        return view('admin.login', ['title' => 'Login']);
+    }
 
-	/* 
-	 * 	Provide authentication action
-	 *  */
-	public function authenticate(AuthenticateAdmin $request)
-	{
-		$admin = $request->session()->get('admin');
-		$request->session()->forget('admin');
+    /* 
+     * Provide authentication action
+     *  */
+    public function authenticate(AuthenticateAdmin $request)
+    {
+        $admin = Admin::find($request->session()->get('admin_id'));
+        
+        $request->session()->forget('admin_id');
 
-		$datas = [
-			'id' => $admin->id,
-			'user_name' => $admin->user_name,
-			'name' => $admin->name
-		];
+        $datas = [
+            'id' => $admin->id,
+            'user_name' => $admin->user_name,
+            'name' => $admin->name
+        ];
 
-		$request->session()->put('_ticket', $datas);
+        $request->session()->put('_ticket', $datas);
 
-		return redirect('/');
-	}
-	
-	/* 
-	 * 	Provide log out action
-	 * 	 */
-	public function log_out(Request $request)
-	{
-		$request->session()->forget('_ticket');
-		
-		return redirect('/login');
-	}
+        return redirect('/');
+    }
+    
+    /* 
+     * Provide change password form
+     *  */
+    public function change_password()
+    {
+        return view('admin.change_password', ['title' => 'Change Password']);
+    }
+    
+    /* 
+     * Provide log out action
+     *  */
+    public function log_out(Request $request)
+    {
+        $request->session()->forget('_ticket');
+        
+        return redirect('/login');
+    }
 }
