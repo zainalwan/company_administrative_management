@@ -8,10 +8,10 @@ CSS_OUTPUT_PATH = ${CSS_OUTPUT_DIR}/${CSS_OUTPUT}
 
 all: css
 
-css: app.css
+css: app.scss
 	@echo "Compiling CSS codes..."
 	mkdir -p ${CSS_OUTPUT_DIR}
-	touch ${CSS_OUTPUT_PATH}
+	sass app.scss ${CSS_OUTPUT_PATH}
 	@echo "CSS codes was SUCCESSFULLY compiled."
 
 clean:
