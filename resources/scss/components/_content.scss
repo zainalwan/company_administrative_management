@@ -1,0 +1,68 @@
+/* 
+   Code that written below is belong to Zain Alwan Wima Irfani. You may not use, share, modify, and study without the author's permission (zainalwan4@gmail.com).
+ */
+
+@use '../helpers/mixin' as mix;
+@use '../helpers/variables' as var;
+
+h2 {
+    font-family: inter;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.notif {
+    margin-bottom: 1rem;
+}
+
+form {
+    li:first-child {
+        label {
+            margin-top: 0;
+        }
+    }
+    
+    label {
+        margin-top: 1rem;
+        margin-bottom: .5rem;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    textarea{
+        border: none;
+        border-bottom: 1px solid var.$black_primary;
+        padding: .4em;
+        width: var.$col_8;
+    }
+
+    .info {
+        color: var.$grey_3;
+        @include mix.input_guide;
+    }
+
+    .error_msg {
+        color: var.$red_primary;
+        @include mix.input_guide;
+    }
+
+    input[name="login"],
+    input[name="register"]{
+        margin-bottom: 2rem;
+    }
+}
+
+p {
+    margin-bottom: .8rem;
+}
+
+.register-direction,
+.login-direction {
+    font-size: .9rem;
+    margin-bottom: .3rem;
+
+    a {
+        text-decoration: underline;
+    }
+}

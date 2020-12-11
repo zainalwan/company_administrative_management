@@ -1,0 +1,20 @@
+/* 
+   Code that written below is belong to Zain Alwan Wima Irfani. You may not use, share, modify, and study without the author's permission (zainalwan4@gmail.com).
+ */
+
+@use '../helpers/_variables.scss' as var;
+
+.footer {
+    background-color: var.$grey_5;
+    color: var.$white;
+    height: 40px;
+    text-align: center;
+    font-size: .85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        margin: 0;
+    }
+}

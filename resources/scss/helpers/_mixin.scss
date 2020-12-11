@@ -4,12 +4,13 @@
    (zainalwan4@gmail.com).
  */
 
-@use 'helpers/reset';
-@use 'helpers/typography';
+@mixin container {
+    text-align: center;
+    min-height: 100vh;
+    padding: 5em 0;
+}
 
-@use 'layouts/separate';
-
-@use 'components/basic';
-@use 'components/hero';
-@use 'components/content';
-@use 'components/footer';
+@mixin input_guide {
+    font-size: .8rem;
+    margin-top: .3rem;
+}

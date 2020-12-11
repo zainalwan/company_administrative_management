@@ -4,12 +4,9 @@
    (zainalwan4@gmail.com).
  */
 
-@use 'helpers/reset';
-@use 'helpers/typography';
+@use '../helpers/variables' as var;
 
-@use 'layouts/separate';
+.hero {
+    display: none;
+}
 
-@use 'components/basic';
-@use 'components/hero';
-@use 'components/content';
-@use 'components/footer';

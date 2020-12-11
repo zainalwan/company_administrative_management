@@ -1,0 +1,19 @@
+/* 
+   Code that written below is belong to Zain Alwan Wima Irfani. You may not use, share, modify, and study without the author's permission (zainalwan4@gmail.com).
+ */
+
+@use '../helpers/variables' as var;
+
+input[type="submit"],
+.button {
+    display: inline-block;
+    background-color: var.$red_primary;
+    color: var.$white;
+    padding: .5em 2em;
+    margin-top: 2rem;
+    transition: .3s background-color cubic-bezier(0.83, 0, 0.17, 1);
+
+    &:hover {
+        background-color: var.$red_secondary;
+    }
+}
