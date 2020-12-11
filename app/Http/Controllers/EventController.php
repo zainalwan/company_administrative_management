@@ -145,7 +145,8 @@ class EventController extends Controller
             'title' => 'Events',
             'events' => Event::where('name', 'like', "%{$request->keyword}%")
                              ->orderBy('id', 'desc')
-                             ->paginate(10)
+                             ->paginate(10),
+            'keyword' => $request->keyword
         ];
         
         return view('events.index', $datas);

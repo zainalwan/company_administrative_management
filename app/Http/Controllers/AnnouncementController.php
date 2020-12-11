@@ -140,8 +140,9 @@ class AnnouncementController extends Controller
         $datas = [
             'title' => 'Announcements',
             'announcements' => Announcement::where('name', 'like', "%{$request->keyword}%")
-                             ->orderBy('id', 'desc')
-                             ->paginate(10)
+                                           ->orderBy('id', 'desc')
+                                           ->paginate(10),
+            'keyword' => $request->keyword
         ];
         
         return view('announcements.index', $datas);

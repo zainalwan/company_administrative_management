@@ -151,8 +151,9 @@ class EmployeeController extends Controller
         $datas = [
             'title' => 'Employees',
             'employees' => Employee::where('name', 'like', "%{$request->keyword}%")
-                             ->orderBy('name', 'asc')
-                             ->paginate(10)
+                                   ->orderBy('name', 'asc')
+                                   ->paginate(10),
+            'keyword' => $request->keyword
         ];
         
         return view('employees.index', $datas);
