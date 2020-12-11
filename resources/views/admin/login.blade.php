@@ -36,5 +36,6 @@
 		</ul>
 	</form>
 	
-	<p>Do not have an account? <a href="/register">Register</a> now.</p>
+	<p class="register-direction">Do not have an account?</p>
+    <p class="register-direction"><a href="/register">Register</a> now.</p>
 @endsection

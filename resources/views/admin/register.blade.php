@@ -45,5 +45,6 @@
 		</ul>
 	</form>
 	
-	<p>Already have an account? <a href="/login">Login</a> now.</p>
+	<p class="login-direction">Already have an account?</p>
+    <p class="login-direction"><a href="/login">Login</a> now.</p>
 @endsection

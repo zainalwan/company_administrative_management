@@ -5,7 +5,6 @@
 	 not use, share, modify, and study without the author's permission
 	 (zainalwan4@gmail.com).
 -->
-
 <html>
 	<head>
 		<title>{{ $title }}</title>
@@ -13,6 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="Zain Alwan Wima Irfani">
 		<meta name="description" content="Company administrative management web app.">
+        <link rel="stylesheet" href="assets/css/app.css">
 	</head>
 
 	<body>
