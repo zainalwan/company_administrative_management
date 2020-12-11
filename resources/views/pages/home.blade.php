@@ -14,7 +14,7 @@
 	<h2>Home</h2>
 
 	<p>Do something awesome.</p>
-	<a class="button" href="/events/create">Create an event</a>
+	<a class="button" href="/event/create">Create an event</a>
 
 	<h3>Recent Updates</h3>
 
