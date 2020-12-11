@@ -18,7 +18,7 @@
             @csrf
             <li><input type="text" name="keyword" placeholder="Enter a keyword" value="{{ $keyword }}"></li>
             <li><input type="submit" name="search" value="Search"></li>
-            <li><a class="button" href="/event/create">Create new</a></li>
+            <li><a class="button secondary" href="/event/create">Create new</a></li>
         </ul>
     </form>
 
