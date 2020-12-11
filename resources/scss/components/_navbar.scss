@@ -1,0 +1,46 @@
+/* 
+   Code that written below is belong to Zain Alwan Wima Irfani. You may not use, share, modify, and study without the author's permission (zainalwan4@gmail.com).
+ */
+
+@use '../helpers/variables' as var;
+
+nav:first-child {
+    ul {
+        text-align: center;
+        background-color: var.$red_primary;
+        color: var.$white;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: -200px;
+        font-family: Inter;
+        font-weight: 500;
+
+        li:first-child {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: var.$red_primary;
+
+            h1 {
+                font-family: Montserrat;
+                font-weight: 500;
+                font-size: 1.5rem;
+                padding: .5em;
+
+                a {
+                    display: inline;
+                }
+            }
+        }
+
+        a {
+            display: block;
+        }
+        
+        svg {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+/* 
+   Code that written below is belong to Zain Alwan Wima Irfani. You may not use, share, modify, and study without the author's permission (zainalwan4@gmail.com).
+ */
+
+@use '../helpers/variables' as var;
+@use '../helpers/mixin' as mix;
+
+.container {
+    @include mix.container(left, 2em);
+
+    width: var.$col_10;
+    margin: 54px auto 0;
+}
