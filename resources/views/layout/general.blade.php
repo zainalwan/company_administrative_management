@@ -73,5 +73,7 @@
 		<div class="footer">
 			<p>Copyright 2020 Zain Alwan Wima Irfani</p>
 		</div>
+
+        <script src="/assets/js/script.js"></script>
 	</body>
 </html>
