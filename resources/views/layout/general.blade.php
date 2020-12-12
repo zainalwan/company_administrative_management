@@ -58,6 +58,11 @@
 					</svg></a>
 					<a href="/log_out">Log out</a>
 				</li>
+                <li class="menu-close-button">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </li>
 			</ul>
 		</nav>
 
