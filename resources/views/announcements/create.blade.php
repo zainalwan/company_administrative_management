@@ -28,8 +28,8 @@
         		<li class="error_msg">{{ $message }}</li>
 			@enderror
 			
-			<li><input type="submit" name="save" value="Save"></li>
-			<li><a href="/announcement">Cancel</a></li>
+			<li class="inline"><input type="submit" name="save" value="Save"></li>
+			<li class="inline"><a class="button secondary" href="/announcement">Cancel</a></li>
 		</ul>
 	</form>
 	

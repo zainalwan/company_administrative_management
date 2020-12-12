@@ -40,13 +40,13 @@
         </tr>
     </table>
 
-    <ul>
-        <li><a href="/employee/{{ $employee['id'] }}/edit">Edit</a></li>
+    <ul class="action">
+        <li><a class="button" href="/employee/{{ $employee['id'] }}/edit">Edit</a></li>
         <li>
             <form action="/employee/{{ $employee['id'] }}" method="post">
                 @method('DELETE')
                 @csrf
-                <input type="submit" name="delete" value="Delete">
+                <input class="button secondary" type="submit" name="delete" value="Delete">
             </form>
         </li>
     </ul>

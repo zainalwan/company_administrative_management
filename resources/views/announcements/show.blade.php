@@ -32,13 +32,13 @@
         </tr>
     </table>
 
-    <ul>
-        <li><a href="/announcement/{{ $announcement['id'] }}/edit">Edit</a></li>
+    <ul class="action">
+        <li><a class="button" href="/announcement/{{ $announcement['id'] }}/edit">Edit</a></li>
         <li>
             <form action="/announcement/{{ $announcement['id'] }}" method="post">
                 @method('DELETE')
                 @csrf
-                <input type="submit" name="delete" value="Delete">
+                <input class="button secondary" type="submit" name="delete" value="Delete">
             </form>
         </li>
     </ul>
