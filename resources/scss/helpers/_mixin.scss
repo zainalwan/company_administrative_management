@@ -1,13 +1,13 @@
-/*
-   Code that written below is belong to Zain Alwan Wima Irfani. You may
-   not use, share, modify, and study without the author's permission
-   (zainalwan4@gmail.com).
- */
+/**
+* Code that written below is belong to Zain Alwan Wima Irfani. You may
+* not use, share, modify, and study without the author's permission
+* (zainalwan4@gmail.com).
+*/
 
-@mixin container {
-    text-align: center;
+@mixin container($text_align: left, $padding) {
+    text-align: $text_align;
     min-height: 100vh;
-    padding: 5em 0;
+    padding: $padding 0;
 }
 
 @mixin input_guide {

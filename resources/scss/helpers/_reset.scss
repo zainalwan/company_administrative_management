@@ -98,11 +98,11 @@ table {
 	border-spacing: 0;
 }
 
-/*! 
-   Code that written below is belong to Zain Alwan Wima Irfani. You may
-   not use, share, modify, and study without the author's permission
-   (zainalwan4@gmail.com).
- */
+/**
+* Code that written below is belong to Zain Alwan Wima Irfani. You may
+* not use, share, modify, and study without the author's permission
+* (zainalwan4@gmail.com).
+*/
 
 a {
     color: inherit;
@@ -133,4 +133,8 @@ html {
 
 label {
     display: inline-block;
+}
+
+* {
+    box-sizing: border-box;
 }

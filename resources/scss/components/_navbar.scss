@@ -1,6 +1,8 @@
-/* 
-   Code that written below is belong to Zain Alwan Wima Irfani. You may not use, share, modify, and study without the author's permission (zainalwan4@gmail.com).
- */
+/**
+* Code that written below is belong to Zain Alwan Wima Irfani. You may
+* not use, share, modify, and study without the author's permission
+* (zainalwan4@gmail.com).
+*/
 
 @use '../helpers/variables' as var;
 
@@ -12,7 +14,7 @@ nav:first-child {
         position: fixed;
         left: 0;
         right: 0;
-        top: -200px;
+        top: calc(-291.6px + 48.6px);
         font-family: Inter;
         font-weight: 500;
 
@@ -26,21 +28,44 @@ nav:first-child {
             h1 {
                 font-family: Montserrat;
                 font-weight: 500;
-                font-size: 1.5rem;
-                padding: .5em;
+                padding: .6rem 0;
 
                 a {
                     display: inline;
+                    font-size: 1.5rem;
+                    padding: 0;
                 }
             }
         }
 
-        a {
+        a:last-child {
             display: block;
+            padding: 1em;
+            font-size: .9rem;
+        }
+
+        .active {
+            background-color: var.$red_secondary;
         }
         
         svg {
             display: none;
+        }
+
+        .menu-close-button {
+            width: 2em;
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            
+            div {
+                background-color: var.$white;
+                height: 2px;
+
+                &:nth-of-type(2) {
+                    margin: 6px 0;
+                }
+            }
         }
     }
 }

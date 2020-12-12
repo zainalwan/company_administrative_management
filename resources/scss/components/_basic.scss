@@ -1,6 +1,8 @@
-/* 
-   Code that written below is belong to Zain Alwan Wima Irfani. You may not use, share, modify, and study without the author's permission (zainalwan4@gmail.com).
- */
+/**
+* Code that written below is belong to Zain Alwan Wima Irfani. You may
+* not use, share, modify, and study without the author's permission
+* (zainalwan4@gmail.com).
+*/
 
 @use '../helpers/variables' as var;
 
@@ -11,9 +13,31 @@ input[type="submit"],
     color: var.$white;
     padding: .5em 2em;
     margin-top: 2rem;
-    transition: .3s background-color cubic-bezier(0.83, 0, 0.17, 1);
+    transition: background-color .3s cubic-bezier(0.83, 0, 0.17, 1);
+    border: 1px solid var.$red_primary;
+    font-size: .9rem;
 
     &:hover {
         background-color: var.$red_secondary;
+        cursor: pointer;
+        border-color: var.$red_secondary;
+    }
+}
+
+.button.secondary {
+    display: inline-block;
+    color: var.$red_primary;
+    background-color: var.$white;
+    padding: .5em 2em;
+    margin-top: 2rem;
+    transition: .3s cubic-bezier(0.83, 0, 0.17, 1);
+    border: 1px solid var.$red_primary;
+    font-size: .9rem;
+
+    &:hover {
+        background-color: var.$red_secondary;
+        color: var.$white;
+        border-color: var.$red_secondary;
+        cursor: pointer;
     }
 }
