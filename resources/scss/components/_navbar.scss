@@ -17,6 +17,7 @@ nav:first-child {
         top: calc(-291.6px + 48.6px);
         font-family: Inter;
         font-weight: 500;
+        transition: top .5s cubic-bezier(0.83, 0, 0.17, 1);
 
         li:first-child {
             position: fixed;
@@ -42,6 +43,11 @@ nav:first-child {
             display: block;
             padding: 1em;
             font-size: .9rem;
+            transition: .3s cubic-bezier(0.83, 0, 0.17, 1);
+            
+            &:hover {
+                background-color: var.$red_secondary;
+            }
         }
 
         .active {
@@ -53,14 +59,15 @@ nav:first-child {
         }
 
         .menu-close-button {
-            width: 2em;
+            width: 1.8em;
             position: fixed;
             top: 15px;
-            right: 20px;
+            right: 15px;
             
             div {
                 background-color: var.$white;
                 height: 2px;
+                transition: .5s cubic-bezier(0.83, 0, 0.17, 1);
 
                 &:nth-of-type(2) {
                     margin: 6px 0;
