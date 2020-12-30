@@ -13,3 +13,11 @@
     width: var.$col_10;
     margin: 54px auto 0;
 }
+
+@media only screen and (min-width: 1024px) {
+    .container {
+        padding: 4em 0;
+        width: var.$col_7;
+        margin: 0 0 0 var.$col_4;
+    }
+}

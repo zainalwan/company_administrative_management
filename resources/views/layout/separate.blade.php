@@ -25,7 +25,7 @@
 			</div>
 		</div>
 
-		<div class="footer">
+		<div class="footer separate">
 			<p>Copyright 2020 Zain Alwan Wima Irfani</p>
 		</div>
 

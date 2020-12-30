@@ -35,8 +35,8 @@
                 <li class="error_msg">{{ $message }}</li>
 			@enderror
 			
-			<li><input type="submit" name="save" value="Save"></li>
-			<li><a href="/account">Cancel</a></li>
+			<li class="inline"><input type="submit" name="save" value="Save"></li>
+			<li class="button secondary inline"><a href="/account">Cancel</a></li>
 		</ul>
 	</form>
 	

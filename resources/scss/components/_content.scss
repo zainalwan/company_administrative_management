@@ -49,6 +49,10 @@ form {
         width: 100%;
     }
 
+    textarea {
+        line-height: 1.2;
+    }
+
     .info {
         color: var.$grey_3;
         @include mix.input_guide;
@@ -213,5 +217,65 @@ h3 {
 table {
     td {
         padding: .5em;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    h2 {
+        font-size: 1.7rem;
+    }
+    
+    form {
+        .container & input[type="text"],
+        input[type="password"],
+        input[type=date] {
+            width: var.$col_3;
+        }
+
+        textarea {
+            height: 15em;
+        }
+
+        .container-inner & {
+            input[type="text"] {
+                width: var.$col_3;
+            }
+        }
+    }
+
+    .caption {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .button.create-event {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .recent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .card {
+            width: 49%;
+        }
+    }
+
+    form[action$="search/"] {
+        ul {
+            input[name="keyword"] {
+                width: 100%;
+            }
+        }
+    }
+
+    .footer.separate {
+        width: 100%;
+        margin: 0;
     }
 }

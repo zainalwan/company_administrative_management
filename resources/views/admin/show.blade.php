@@ -28,13 +28,13 @@
         </tr>
     </table>
 
-    <ul>
-        <li><a href="/account/change_password">Change password</a></li>
+    <ul class="action">
+        <li><a class="button" href="/account/change_password">Change password</a></li>
         <li>
             <form action="/account" method="post">
                 @method('DELETE')
                 @csrf
-                <input type="submit" name="delete" value="Delete">
+                <input class="button secondary" type="submit" name="delete" value="Delete account">
             </form>
         </li>
     </ul>

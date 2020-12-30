@@ -26,6 +26,10 @@ nav:first-child {
             left: 0;
             background-color: var.$red_primary;
 
+            &:hover {
+                background-color: var.$red_primary;
+            }
+
             h1 {
                 font-family: Montserrat;
                 font-weight: 500;
@@ -39,15 +43,18 @@ nav:first-child {
             }
         }
 
-        a:last-child {
-            display: block;
-            padding: 1em;
-            font-size: .9rem;
+        li {
             transition: .3s cubic-bezier(0.83, 0, 0.17, 1);
             
             &:hover {
                 background-color: var.$red_secondary;
             }
+        }
+
+        a:last-child {
+            display: block;
+            padding: 1em;
+            font-size: .9rem;
         }
 
         .active {
@@ -63,6 +70,10 @@ nav:first-child {
             position: fixed;
             top: 15px;
             right: 15px;
+
+            &:hover {
+                background-color: var.$red_primary;
+            }
             
             div {
                 background-color: var.$white;
@@ -72,6 +83,60 @@ nav:first-child {
                 &:nth-of-type(2) {
                     margin: 6px 0;
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    nav:first-child {
+        ul {
+            right: auto;
+            width: var.$col_3;
+            top: 0;
+            bottom: 0;
+
+            li:first-child {
+                position: static;
+                display: block;
+                margin: 2em auto 4em;
+
+                h1 {
+                    a {
+                        font-size: 2rem;
+                    }
+                }
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+            }
+
+            li:nth-of-type(6) {
+                margin-top: 3em;
+            }
+
+            a:last-child {
+                display: inline-block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .active {
+                background-color: var.$red_secondary;
+            }
+            
+            svg {
+                display: inline-block;
+                fill: var.$white;
+                width: 1.2em;
+                height: 1.2em;
+                margin: 0 0 0 1.5em;
+            }
+
+            .menu-close-button {
+                display: none;
             }
         }
     }
