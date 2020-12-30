@@ -141,12 +141,14 @@ class EventController extends Controller
      *  */
     public function search(Request $request)
     {
+        $request->session()->put('keyword', $request->input('keyword', $request->session()->get('keyword')));
+        
         $datas = [
             'title' => 'Events',
-            'events' => Event::where('name', 'like', "%{$request->keyword}%")
-                             ->orderBy('id', 'desc')
+            'events' => Event::where('name', 'like', "%{$request->session()->get('keyword')}%")
+                             ->orderBy('name', 'asc')
                              ->paginate(10),
-            'keyword' => $request->keyword
+            'keyword' => $request->session()->get('keyword')
         ];
         
         return view('events.index', $datas);

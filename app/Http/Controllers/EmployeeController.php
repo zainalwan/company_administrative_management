@@ -148,14 +148,16 @@ class EmployeeController extends Controller
      *  */
     public function search(Request $request)
     {
+        $request->session()->put('keyword', $request->input('keyword', $request->session()->get('keyword')));
+        
         $datas = [
             'title' => 'Employees',
-            'employees' => Employee::where('name', 'like', "%{$request->keyword}%")
+            'employees' => Employee::where('name', 'like', "%{$request->session()->get('keyword')}%")
                                    ->orderBy('name', 'asc')
                                    ->paginate(10),
-            'keyword' => $request->keyword
+            'keyword' => $request->session()->get('keyword')
         ];
-        
+
         return view('employees.index', $datas);
     }
 }

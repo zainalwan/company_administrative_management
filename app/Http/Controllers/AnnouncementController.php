@@ -137,12 +137,14 @@ class AnnouncementController extends Controller
      *  */
     public function search(Request $request)
     {
+        $request->session()->put('keyword', $request->input('keyword', $request->session()->get('keyword')));
+                
         $datas = [
             'title' => 'Announcements',
-            'announcements' => Announcement::where('name', 'like', "%{$request->keyword}%")
-                                           ->orderBy('id', 'desc')
-                                           ->paginate(10),
-            'keyword' => $request->keyword
+            'announcements' => Announcement::where('name', 'like', "%{$request->session()->get('keyword')}%")
+            ->orderBy('name', 'asc')
+            ->paginate(10),
+            'keyword' => $request->session()->get('keyword')
         ];
         
         return view('announcements.index', $datas);
